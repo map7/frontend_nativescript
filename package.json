@@ -30,9 +30,22 @@
   "devDependencies": {
     "@angular/compiler-cli": "~8.2.0",
     "@ngtools/webpack": "~8.2.0",
+    "@types/chai": "~4.1.7",
+    "@types/mocha": "~5.2.5",
+    "@types/node": "~10.12.18",
+    "chai": "~4.1.2",
+    "mocha": "~5.2.0",
+    "mocha-junit-reporter": "~1.18.0",
+    "mocha-multi": "~1.0.1",
+    "mochawesome": "~3.1.2",
+    "nativescript-dev-appium": "^6.0.0",
     "nativescript-dev-webpack": "~1.2.0",
     "typescript": "~3.5.3"
   },
   "gitHead": "e9af7b54b243e55ef28e4610c4ef8c83837d86c0",
-  "readme": "NativeScript Application"
+  "readme": "NativeScript Application",
+  "scripts": {
+    "e2e": "node ./node_modules/nativescript-dev-appium/check-dev-deps.js &&  tsc -p e2e  &&  mocha --opts ./e2e/config/mocha.opts ",
+    "e2e-watch": "tsc -p e2e --watch"
+  }
 }
