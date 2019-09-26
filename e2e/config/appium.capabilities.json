@@ -118,5 +118,16 @@
         "noReset": false,
         "fullReset": false,
         "app": ""
+    },
+    "samsung": {
+        "platformName": "Android",
+        "platformVersion": "7.0",
+        "deviceName": "samsung_galaxy_s8",
+        "avd": "samsung_galaxy_s8",
+        "lt": 60000,
+        "newCommandTimeout": 720,
+        "noReset": false,
+        "fullReset": false,
+        "app": ""
     }
 }
