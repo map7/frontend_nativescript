@@ -21,25 +21,31 @@ describe("sample scenario", () => {
         }
     });
 
-    it("should find an element by text", async function () {
-        const btnTap = await driver.findElementByAutomationText("TAP");
-        await btnTap.click();
+    it("should show login page", async function () {
+        // Check heading
+        const lblHeading = await driver.findElementByAccessibilityId("heading");
+        assert.equal(await lblHeading.text(), "Login");
+    }); 
 
-        const message = " taps left";
-        const lblMessage = await driver.findElementByText(message, SearchOptions.contains);
-        assert.equal(await lblMessage.text(), "41" + message);
+    // it("should find an element by text", async function () {
+    //     const btnTap = await driver.findElementByAutomationText("TAP");
+    //     await btnTap.click();
 
-        // Image verification
-        // const screen = await driver.compareScreen("hello-world-41");
-        // assert.isTrue(screen);
-    });
+    //     const message = " taps left";
+    //     const lblMessage = await driver.findElementByText(message, SearchOptions.contains);
+    //     assert.equal(await lblMessage.text(), "41" + message);
 
-    it("should find an element by type", async function () {
-        const btnTap = await driver.findElementByClassName(driver.locators.button);
-        await btnTap.click();
+    //     // Image verification
+    //     // const screen = await driver.compareScreen("hello-world-41");
+    //     // assert.isTrue(screen);
+    // });
 
-        const message = " taps left";
-        const lblMessage = await driver.findElementByText(message, SearchOptions.contains);
-        assert.equal(await lblMessage.text(), "40" + message);
-    });
+    // it("should find an element by type", async function () {
+    //     const btnTap = await driver.findElementByClassName(driver.locators.button);
+    //     await btnTap.click();
+
+    //     const message = " taps left";
+    //     const lblMessage = await driver.findElementByText(message, SearchOptions.contains);
+    //     assert.equal(await lblMessage.text(), "40" + message);
+    // });
 });
