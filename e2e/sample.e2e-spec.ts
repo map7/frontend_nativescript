@@ -27,6 +27,16 @@ describe("sample scenario", () => {
         assert.equal(await lblHeading.text(), "Login");
     }); 
 
+    it("ends up on 'home' screen after login", async function () {
+        // Login
+        const btnLoginTap = await driver.findElementByAccessibilityId("btnLogin");
+        await btnLoginTap.click();
+        
+        // Check heading
+        const lblHeading = await driver.findElementByAccessibilityId("heading");
+        assert.equal(await lblHeading.text(), "Home");        
+    }); 
+
     // it("should find an element by text", async function () {
     //     const btnTap = await driver.findElementByAutomationText("TAP");
     //     await btnTap.click();
