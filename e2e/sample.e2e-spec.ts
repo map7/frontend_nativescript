@@ -62,6 +62,16 @@ describe("Login Screens", () => {
             assert.equal(await lblHeading.text(), "Home");
         }); 
 
+        it("ends up on 'manual' screen after clicking 'manual button'", async function () {
+            // Nav to Manual
+            const btnManualNavTap = await driver.findElementByAccessibilityId("btnManual");
+            await btnManualNavTap.click();
+
+            // Check heading
+            const lblHeading = await driver.findElementByAccessibilityId("heading");
+            assert.equal(await lblHeading.text(), "Manual");
+        }); 
+
     });
 
     // it("ends up on 'manual' screen after tapping Manual", async function () {
