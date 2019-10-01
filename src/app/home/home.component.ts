@@ -22,4 +22,8 @@ export class HomeComponent implements OnInit {
     navManual() {
         this.router.navigate(["/manual"]);
     }
+
+    navFeedback() {
+        this.router.navigate(["/feedback"]);
+    }
 }
