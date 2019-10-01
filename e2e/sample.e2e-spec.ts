@@ -51,6 +51,9 @@ describe("sample scenario", () => {
         const lblHeading = await driver.findElementByAccessibilityId("heading");
         assert.equal(await lblHeading.text(), "Sign Up");
 
+        // Login
+        const btnLoginTap = await driver.findElementByAccessibilityId("btnLogin");
+        await btnLoginTap.click();
     }); 
     
     // it("should find an element by text", async function () {
