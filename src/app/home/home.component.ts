@@ -26,4 +26,8 @@ export class HomeComponent implements OnInit {
     navFeedback() {
         this.router.navigate(["/feedback"]);
     }
+
+    navSettings() {
+        this.router.navigate(["/settings"]);
+    }
 }
