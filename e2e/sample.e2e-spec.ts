@@ -81,6 +81,16 @@ describe("Login Screens", () => {
             const lblHeading = await driver.findElementByAccessibilityId("heading");
             assert.equal(await lblHeading.text(), "Feedback");
         }); 
+
+        it("ends up on 'settings' screen after clicking 'settings button'", async function () {
+            // Nav to Settings
+            const btnSettingsNavTap = await driver.findElementByAccessibilityId("btnSettings");
+            await btnSettingsNavTap.click();
+
+            // Check heading
+            const lblHeading = await driver.findElementByAccessibilityId("heading");
+            assert.equal(await lblHeading.text(), "Settings");
+        }); 
         
     });
 
