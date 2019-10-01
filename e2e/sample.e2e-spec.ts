@@ -72,22 +72,18 @@ describe("Login Screens", () => {
             assert.equal(await lblHeading.text(), "Manual");
         }); 
 
+        it("ends up on 'feedback' screen after clicking 'feedback button'", async function () {
+            // Nav to Feedback
+            const btnFeedbackNavTap = await driver.findElementByAccessibilityId("btnFeedback");
+            await btnFeedbackNavTap.click();
+
+            // Check heading
+            const lblHeading = await driver.findElementByAccessibilityId("heading");
+            assert.equal(await lblHeading.text(), "Feedback");
+        }); 
+        
     });
 
-    // it("ends up on 'manual' screen after tapping Manual", async function () {
-    //     // Login
-    //     const btnLoginTap = await driver.findElementByAccessibilityId("btnLogin");
-    //     await btnLoginTap.click();
-        
-    //     // Check heading
-    //     const lblHeading = await driver.findElementByAccessibilityId("heading");
-    //     assert.equal(await lblHeading.text(), "Home");
-
-    //     // Logout
-    //     const btnLogoutTap = await driver.findElementByAccessibilityId("btnLogout");
-    //     await btnLogoutTap.click();
-    // }); 
-    
     // it("should find an element by text", async function () {
     //     const btnTap = await driver.findElementByAutomationText("TAP");
     //     await btnTap.click();
