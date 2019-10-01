@@ -3,5 +3,8 @@
 </ActionBar>
 
 <GridLayout class="page">
-  <Button col=0 automationText="btnLogin" text="Login" (tap)='navHome()' padding="10"></Button>
+  <GridLayout rows="*", columns="*,*">
+    <Button col=0 automationText="btnSignUp" text="Sign Up" (tap)='navSignUp()' padding="10"></Button>
+    <Button col=1 automationText="btnLogin" text="Login" (tap)='navHome()' padding="10"></Button>
+  </GridLayout>
 </GridLayout>
