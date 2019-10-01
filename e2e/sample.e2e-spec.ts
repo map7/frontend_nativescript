@@ -1,5 +1,6 @@
 import { AppiumDriver, createDriver, SearchOptions, nsCapabilities } from "nativescript-dev-appium";
 import { assert } from "chai";
+
 const addContext = require('mochawesome/addContext');
 
 describe("sample scenario", () => {
@@ -34,9 +35,24 @@ describe("sample scenario", () => {
         
         // Check heading
         const lblHeading = await driver.findElementByAccessibilityId("heading");
-        assert.equal(await lblHeading.text(), "Home");        
+        assert.equal(await lblHeading.text(), "Home");
+
+        // Logout
+        const btnLogoutTap = await driver.findElementByAccessibilityId("btnLogout");
+        await btnLogoutTap.click();
     }); 
 
+    it("ends up on 'sign up' screen after tapping Sign Up", async function () {
+        // Login
+        const btnSignUpTap = await driver.findElementByAccessibilityId("btnSignUp");
+        await btnSignUpTap.click();
+        
+        // Check heading
+        const lblHeading = await driver.findElementByAccessibilityId("heading");
+        assert.equal(await lblHeading.text(), "Sign Up");
+
+    }); 
+    
     // it("should find an element by text", async function () {
     //     const btnTap = await driver.findElementByAutomationText("TAP");
     //     await btnTap.click();
