@@ -23,6 +23,14 @@ describe("Login Screens", () => {
     });
 
     it("should show login page", async function () {
+        // Enter user
+        const nameField = await driver.findElementByAccessibilityId("email");
+        await nameField.sendKeys("testuser@pais.com.au");
+
+        // Enter password
+        const passwordField = await driver.findElementByAccessibilityId("password");
+        await passwordField.sendKeys("password");
+        
         // Check heading
         const lblHeading = await driver.findElementByAccessibilityId("heading");
         assert.equal(await lblHeading.text(), "Login");
