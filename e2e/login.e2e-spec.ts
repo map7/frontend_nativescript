@@ -40,8 +40,8 @@ describe("Login Screens", () => {
         await btnLoginTap.click();
 
         // Check heading
-        const lblHeading2 = await driver.findElementByAccessibilityId("heading");
-        assert.equal(await lblHeading2.text(), "Home");
+        const lblHeadingHome = await driver.findElementByAccessibilityId("headingHome");
+        assert.equal(await lblHeadingHome.text(), "Home");
 
         // Login
         const btnLoginNavTap = await driver.findElementByAccessibilityId("btnLogin");
@@ -54,8 +54,8 @@ describe("Login Screens", () => {
         await btnSignUpTap.click();
         
         // Check heading
-        const lblHeading = await driver.findElementByAccessibilityId("heading");
-        assert.equal(await lblHeading.text(), "Sign Up");
+        const lblHeadingSignUp = await driver.findElementByAccessibilityId("headingSignUp");
+        assert.equal(await lblHeadingSignUp.text(), "Sign Up");
 
         // Login
         const btnLoginNavTap = await driver.findElementByAccessibilityId("btnLogin");
@@ -82,8 +82,8 @@ describe("Login Screens", () => {
             await btnManualNavTap.click();
 
             // Check heading
-            const lblHeading = await driver.findElementByAccessibilityId("heading");
-            assert.equal(await lblHeading.text(), "Manual");
+            const lblHeadingManual = await driver.findElementByAccessibilityId("headingManual");
+            assert.equal(await lblHeadingManual.text(), "Manual");
         }); 
 
         it("ends up on 'feedback' screen after clicking 'feedback button'", async function () {
@@ -92,8 +92,8 @@ describe("Login Screens", () => {
             await btnFeedbackNavTap.click();
 
             // Check heading
-            const lblHeading = await driver.findElementByAccessibilityId("heading");
-            assert.equal(await lblHeading.text(), "Feedback");
+            const lblHeadingFeedback = await driver.findElementByAccessibilityId("headingFeedback");
+            assert.equal(await lblHeadingFeedback.text(), "Feedback");
         }); 
 
         it("ends up on 'settings' screen after clicking 'settings button'", async function () {
@@ -102,8 +102,8 @@ describe("Login Screens", () => {
             await btnSettingsNavTap.click();
 
             // Check heading
-            const lblHeading = await driver.findElementByAccessibilityId("heading");
-            assert.equal(await lblHeading.text(), "Settings");
+            const lblHeadingSettings = await driver.findElementByAccessibilityId("headingSettings");
+            assert.equal(await lblHeadingSettings.text(), "Settings");
         }); 
         
     });
