@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
+import * as localStorage from "@proplugins/nativescript-localstorage";
 
 @Component({
     selector: "Login",
@@ -11,7 +12,10 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // Init your component properties here.
+        // test localstorage
+        let me = localStorage.getItem('MeaningOfLife') || 42;
+        console.log(me);
+        localStorage.setItem('MeaningOfLife', 1);
     }
 
     navHome() {
