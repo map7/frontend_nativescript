@@ -15,10 +15,7 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // test localstorage
-        let me = localStorage.getItem('MeaningOfLife') || 42;
-        console.log(me);
-        localStorage.setItem('MeaningOfLife', 1);
+
     }
 
     navHome() {
