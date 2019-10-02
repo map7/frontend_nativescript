@@ -22,7 +22,11 @@ describe("Login Screens", () => {
         }
     });
 
-    it("should show login page", async function () {
+    it("should login", async function () {
+        // Check heading
+        const lblHeading = await driver.findElementByAccessibilityId("heading");
+        assert.equal(await lblHeading.text(), "Login");
+
         // Enter user
         const nameField = await driver.findElementByAccessibilityId("email");
         await nameField.sendKeys("testuser@pais.com.au");
@@ -31,9 +35,17 @@ describe("Login Screens", () => {
         const passwordField = await driver.findElementByAccessibilityId("password");
         await passwordField.sendKeys("password");
         
+        // Login
+        const btnLoginTap = await driver.findElementByAccessibilityId("btnLogin");
+        await btnLoginTap.click();
+
         // Check heading
-        const lblHeading = await driver.findElementByAccessibilityId("heading");
-        assert.equal(await lblHeading.text(), "Login");
+        const lblHeading2 = await driver.findElementByAccessibilityId("heading");
+        assert.equal(await lblHeading2.text(), "Home");
+
+        // Login
+        const btnLoginNavTap = await driver.findElementByAccessibilityId("btnLogin");
+        await btnLoginNavTap.click();
     });
 
     it("ends up on 'sign up' screen after tapping Sign Up", async function () {
@@ -63,12 +75,6 @@ describe("Login Screens", () => {
             const btnLoginNavTap = await driver.findElementByAccessibilityId("btnLogin");
             await btnLoginNavTap.click();
         });
-        
-        it("ends up on 'home' screen after login", async function () {
-            // Check heading
-            const lblHeading = await driver.findElementByAccessibilityId("heading");
-            assert.equal(await lblHeading.text(), "Home");
-        }); 
 
         it("ends up on 'manual' screen after clicking 'manual button'", async function () {
             // Nav to Manual
