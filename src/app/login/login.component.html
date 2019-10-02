@@ -4,6 +4,15 @@
 
 <GridLayout class="page">
   <StackLayout>
+    <StackLayout padding="10">
+      <Label text="Email"></Label>
+      <TextField automationText="email" hint="Login Email" class="input">
+      </TextField>
+      <Label text="Password"></Label>
+      <TextField automationText="password" hint="Login Password" class="input">
+      </TextField>
+    </StackLayout>
+
     <Button row="0" automationText="btnLogin" text="Login" (tap)='navHome()' padding="10"></Button>
     <Button row="1" automationText="btnSignUp" text="Sign Up" (tap)='navSignUp()' padding="10"></Button>
   </StackLayout>
