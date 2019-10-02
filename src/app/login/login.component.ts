@@ -18,8 +18,26 @@ export class LoginComponent implements OnInit {
 
     }
 
-    navHome() {
-        this.router.navigate(["/home"]);
+    login() {
+        // Login
+        this.http.post("https://a61d19f0.ngrok.io/auth/sign_in",
+                       { email: "user@example.com",
+                         password: "monkey67" },
+                       { observe: 'response' }
+                      ).pipe(
+                          map(data => {
+                              let uid = data.headers.get('uid');
+                              let client = data.headers.get('client');
+                              let access = data.headers.get('access-token')
+
+                              console.log("Logged in: " + access);
+                              
+                              let token = {uid: uid, client: client, access: access}
+                              localStorage.setItemObject('token', token);
+                          })
+                      ).subscribe(res => {
+                          this.router.navigate(["/home"]);
+                      });
     }
 
     navSignUp() {
