@@ -44,11 +44,11 @@ describe("Login Screens", () => {
 
         // Enter user
         const nameField = await driver.findElementByAccessibilityId("email");
-        await nameField.sendKeys("testuser@pais.com.au");
+        await nameField.sendKeys("user@example.com");
 
         // Enter password
         const passwordField = await driver.findElementByAccessibilityId("password");
-        await passwordField.sendKeys("password");
+        await passwordField.sendKeys("monkey67");
         
         // Login
         const btnLoginTap = await driver.findElementByAccessibilityId("btnLogin");
@@ -66,6 +66,14 @@ describe("Login Screens", () => {
     describe("After login", () => {
 
         before(async function () {
+            // Enter user
+            const nameField = await driver.findElementByAccessibilityId("email");
+            await nameField.sendKeys("user@example.com");
+
+            // Enter password
+            const passwordField = await driver.findElementByAccessibilityId("password");
+            await passwordField.sendKeys("monkey67");
+
             // Login
             const btnLoginTap = await driver.findElementByAccessibilityId("btnLogin");
             await btnLoginTap.click();
