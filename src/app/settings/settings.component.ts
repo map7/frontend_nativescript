@@ -15,7 +15,7 @@ export class SettingsComponent implements OnInit {
         // Init your component properties here.
     }
 
-    navLogin() {
-        this.router.navigate(["/login"]);
+    navHome() {
+        this.router.navigate(["/home"]);
     }
 }

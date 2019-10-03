@@ -20,7 +20,22 @@ describe("Login Screens", () => {
         if (this.currentTest.state === "failed") {
             await driver.logTestArtifacts(this.currentTest.title);
         }
+        
     });
+
+    it("ends up on 'sign up' screen after tapping Sign Up", async function () {
+        // Login
+        const btnSignUpTap = await driver.findElementByAccessibilityId("btnSignUp");
+        await btnSignUpTap.click();
+        
+        // Check heading
+        const lblHeadingSignUp = await driver.findElementByAccessibilityId("headingSignUp");
+        assert.equal(await lblHeadingSignUp.text(), "Sign Up");
+
+        // Login
+        const btnLoginNavTap = await driver.findElementByAccessibilityId("btnLogin");
+        await btnLoginNavTap.click();
+    }); 
 
     it("should login", async function () {
         // Check heading
@@ -48,32 +63,18 @@ describe("Login Screens", () => {
         await btnLoginNavTap.click();
     });
 
-    it("ends up on 'sign up' screen after tapping Sign Up", async function () {
-        // Login
-        const btnSignUpTap = await driver.findElementByAccessibilityId("btnSignUp");
-        await btnSignUpTap.click();
-        
-        // Check heading
-        const lblHeadingSignUp = await driver.findElementByAccessibilityId("headingSignUp");
-        assert.equal(await lblHeadingSignUp.text(), "Sign Up");
-
-        // Login
-        const btnLoginNavTap = await driver.findElementByAccessibilityId("btnLogin");
-        await btnLoginNavTap.click();
-    }); 
-
     describe("After login", () => {
 
-        beforeEach(async function () {
+        before(async function () {
             // Login
             const btnLoginTap = await driver.findElementByAccessibilityId("btnLogin");
             await btnLoginTap.click();
         });
         
         afterEach(async function () {
-            // Nav to Login
-            const btnLoginNavTap = await driver.findElementByAccessibilityId("btnLogin");
-            await btnLoginNavTap.click();
+            // Nav to Home
+            const btnHomeNavTap = await driver.findElementByAccessibilityId("btnHome");
+            await btnHomeNavTap.click();
         });
 
         it("ends up on 'manual' screen after clicking 'manual button'", async function () {
