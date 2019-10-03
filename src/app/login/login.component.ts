@@ -10,6 +10,9 @@ import { catchError, map, tap } from "rxjs/operators";
     templateUrl: "./login.component.html"
 })
 export class LoginComponent implements OnInit {
+    public email: string;
+    public password: string;
+    
     constructor(private router: Router, private http: HttpClient) {
         // Use the component constructor to inject providers.
     }
@@ -19,25 +22,28 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-        // Login
-        this.http.post("https://a61d19f0.ngrok.io/auth/sign_in",
-                       { email: "user@example.com",
-                         password: "monkey67" },
-                       { observe: 'response' }
-                      ).pipe(
-                          map(data => {
-                              let uid = data.headers.get('uid');
-                              let client = data.headers.get('client');
-                              let access = data.headers.get('access-token')
+        console.log("Login called")
+        console.log(this.email);
+        console.log(this.password);
+        
+        // this.http.post("https://a61d19f0.ngrok.io/auth/sign_in",
+        //                { email: "user@example.com",
+        //                  password: "monkey67" },
+        //                { observe: 'response' }
+        //               ).pipe(
+        //                   map(data => {
+        //                       let uid = data.headers.get('uid');
+        //                       let client = data.headers.get('client');
+        //                       let access = data.headers.get('access-token')
 
-                              console.log("Logged in: " + access);
+        //                       console.log("Logged in: " + access);
                               
-                              let token = {uid: uid, client: client, access: access}
-                              localStorage.setItemObject('token', token);
-                          })
-                      ).subscribe(res => {
-                          this.router.navigate(["/home"]);
-                      });
+        //                       let token = {uid: uid, client: client, access: access}
+        //                       localStorage.setItemObject('token', token);
+        //                   })
+        //               ).subscribe(res => {
+        //                   this.router.navigate(["/home"]);
+        //               });
     }
 
     navSignUp() {
