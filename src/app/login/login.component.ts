@@ -23,27 +23,28 @@ export class LoginComponent implements OnInit {
 
     login() {
         console.log("Login called")
-        console.log(this.email);
-        console.log(this.password);
+        // Using the example rails app ~/code/AssetManagementRailsPrototype
+        // email     = user@example.com
+        // password  = monkey67
         
-        // this.http.post("https://a61d19f0.ngrok.io/auth/sign_in",
-        //                { email: "user@example.com",
-        //                  password: "monkey67" },
-        //                { observe: 'response' }
-        //               ).pipe(
-        //                   map(data => {
-        //                       let uid = data.headers.get('uid');
-        //                       let client = data.headers.get('client');
-        //                       let access = data.headers.get('access-token')
+        this.http.post("https://a61d19f0.ngrok.io/auth/sign_in",
+                       { email: this.email, 
+                         password: this.password },
+                       { observe: 'response' }
+                      ).pipe(
+                          map(data => {
+                              let uid = data.headers.get('uid');
+                              let client = data.headers.get('client');
+                              let access = data.headers.get('access-token')
 
-        //                       console.log("Logged in: " + access);
+                              console.log("Logged in: " + access);
                               
-        //                       let token = {uid: uid, client: client, access: access}
-        //                       localStorage.setItemObject('token', token);
-        //                   })
-        //               ).subscribe(res => {
-        //                   this.router.navigate(["/home"]);
-        //               });
+                              let token = {uid: uid, client: client, access: access}
+                              localStorage.setItemObject('token', token);
+                          })
+                      ).subscribe(res => {
+                          this.router.navigate(["/home"]);
+                      });
     }
 
     navSignUp() {
