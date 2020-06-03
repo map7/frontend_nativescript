@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
     login() {
         console.log("Login called")
-        // Using the example rails app ~/code/AssetManagementRailsPrototype
+        // Using the example rails app ~/code/templates/mobile_app_with_backend/backend_rails6_template
         // email     = user@example.com
         // password  = monkey67
         
