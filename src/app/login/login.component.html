@@ -6,10 +6,19 @@
   <StackLayout>
     <StackLayout padding="10">
       <Label text="Email"></Label>
-      <TextField automationText="email" hint="Login Email" class="input" [(ngModel)]="email">
+      <TextField automationText="email"
+                 hint="Login Email"
+                 class="input"
+                 autocapitalizationType="none"
+                 [(ngModel)]="email">
       </TextField>
       <Label text="Password"></Label>
-      <TextField automationText="password" hint="Login Password" class="input" [(ngModel)]="password">
+
+      <TextField automationText="password"
+                 class="input"
+                 hint="Login Password"
+                 autocapitalizationType="none"
+                 [(ngModel)]="password">
       </TextField>
     </StackLayout>
 
