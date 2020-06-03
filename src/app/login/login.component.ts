@@ -5,15 +5,20 @@ import * as localStorage from "@proplugins/nativescript-localstorage";
 import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
 
+import { GlobalVariables } from "../global.variables";
+
 @Component({
     selector: "Login",
-    templateUrl: "./login.component.html"
+    templateUrl: "./login.component.html",
+    providers: [GlobalVariables]
 })
 export class LoginComponent implements OnInit {
     public email: string;
     public password: string;
     
-    constructor(private router: Router, private http: HttpClient) {
+    constructor(private router: Router,
+                private http: HttpClient,
+                private GlobalVariables: GlobalVariables) {
         // Use the component constructor to inject providers.
     }
 
@@ -27,7 +32,7 @@ export class LoginComponent implements OnInit {
         // email     = user@example.com
         // password  = monkey67
         
-        this.http.post("https://a61d19f0.ngrok.io/auth/sign_in",
+        this.http.post(this.GlobalVariables.API_URL + "/auth/sign_in",
                        { email: this.email, 
                          password: this.password },
                        { observe: 'response' }
