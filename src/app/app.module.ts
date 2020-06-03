@@ -6,6 +6,8 @@ import { AppComponent } from "./app.component";
 
 import { HttpClientModule } from "@angular/common/http";
 
+import { GlobalVariables } from "./global.variables"
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -20,6 +22,9 @@ import { HttpClientModule } from "@angular/common/http";
     ],
     schemas: [
         NO_ERRORS_SCHEMA
+    ],
+    providers: [
+        GlobalVariables
     ]
 })
 export class AppModule { }
