@@ -16,10 +16,11 @@ const { getAngularCompilerPlugin } = require("nativescript-dev-webpack/plugins/N
 const hashSalt = Date.now().toString();
 
 module.exports = env => {
+    console.log('env.apiUrl', env.apiUrl); // print environment variables obtained from commandline
     // Add your custom Activities, Services and other Android app components here.
     const appComponents = [
-        "tns-core-modules/ui/frame",
-        "tns-core-modules/ui/frame/activity",
+      "tns-core-modules/ui/frame",
+      "tns-core-modules/ui/frame/activity",
     ];
 
     const platform = env && (env.android && "android" || env.ios && "ios");
@@ -50,6 +51,7 @@ module.exports = env => {
         hmr, // --env.hmr,
         unitTesting, // --env.unitTesting
         verbose, // --env.verbose
+        apiUrl   // --env.apiUrl
     } = env;
 
     const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
@@ -261,8 +263,9 @@ module.exports = env => {
         plugins: [
             // Define useful constants like TNS_WEBPACK
             new webpack.DefinePlugin({
-                "global.TNS_WEBPACK": "true",
-                "process": "global.process",
+              "global.TNS_WEBPACK": "true",
+              "process": "global.process",
+              "global.API_URL": JSON.stringify(env.apiUrl || 'https://<change me>.com.au')
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin(itemsToClean, { verbose: !!verbose }),
