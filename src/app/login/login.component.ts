@@ -4,12 +4,14 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
 
+import { TokenService } from "../services/token.service";
+
 import { GlobalVariables } from "../global.variables";
 
 @Component({
     selector: "Login",
     templateUrl: "./login.component.html",
-    providers: [GlobalVariables]
+    providers: [TokenService, GlobalVariables]
 })
 export class LoginComponent implements OnInit {
     public email: string;
@@ -17,6 +19,7 @@ export class LoginComponent implements OnInit {
     
     constructor(private router: Router,
                 private http: HttpClient,
+                private _tokenService: TokenService,
                 private GlobalVariables: GlobalVariables) {
         // Use the component constructor to inject providers.
     }
