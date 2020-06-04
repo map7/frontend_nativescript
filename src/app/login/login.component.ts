@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         // email     = user@example.com
         // password  = monkey67
         
-        this.http.post(this.GlobalVariables.API_URL + "/auth/sign_in",
+        this.http.post(this.GlobalVariables.API_URL + "/auth/sign_in.json",
                        { email: this.email, 
                          password: this.password },
                        { observe: 'response' }
