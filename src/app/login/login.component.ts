@@ -46,7 +46,10 @@ export class LoginComponent implements OnInit {
 
                               console.log("Logged in: " + access);
                               
-                              let token = {uid: uid, client: client, access: access}
+                              // Persist tokens
+                              this._tokenService.save_token("accessToken", access)
+                              this._tokenService.save_token("clientToken", client)
+                              this._tokenService.save_token("uidToken", uid)
                           })
                       ).subscribe(res => {
                           this.router.navigate(["/home"]);
