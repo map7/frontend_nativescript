@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 
-import * as localStorage from "@proplugins/nativescript-localstorage";
 import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
 
@@ -45,7 +44,6 @@ export class LoginComponent implements OnInit {
                               console.log("Logged in: " + access);
                               
                               let token = {uid: uid, client: client, access: access}
-                              localStorage.setItemObject('token', token);
                           })
                       ).subscribe(res => {
                           this.router.navigate(["/home"]);
