@@ -1,0 +1,14 @@
+* Setup
+
+1. Start backend
+
+   : cd ~/code/templates/mobile_app_with_backend/backend_rails6_template
+   : rails s -b 192.168.200.4
+
+2. Start mobile frontend
+
+   : ssh -Y ltsphost
+   : cd ~/code/templates/mobile_app_with_backend/frontend_nativescript_template
+   : pkill -9 -f android
+   : tns run android --env.apiUrl='http://192.168.200.4:3000'
+
