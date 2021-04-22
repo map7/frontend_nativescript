@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        let url = this.GlobalVariables.API_URL + "/home.json?" + this._tokenService.get_stringified_access_tokens();;
+        let url = this.GlobalVariables.API_URL + "/api/v1/home.json?" + this._tokenService.get_stringified_access_tokens();;
 
         this.http.get(url,{observe: "response"})
             .pipe(
